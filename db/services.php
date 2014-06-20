@@ -14,7 +14,14 @@ $functions = array(
         'classpath' => 'user/externallib.php',
         'description' => 'pega usuarios',
         'type' => 'write'
-    )
+    ),
+    'local_wpensar_update_user' => array(
+        'classname' => 'core_user_external',
+        'methodname' => 'update_users',
+        'classpath' => 'user/externallib.php',
+        'description' => 'Atualiza',
+        'type' => 'write'
+    ),
 );
 
 $services = array(
