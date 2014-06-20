@@ -22,13 +22,13 @@ $functions = array(
         'description' => 'Atualiza',
         'type' => 'write'
     ),
-    'local_wpensar_enrol_user' => array(
+    /*'local_wpensar_enrol_user' => array(
         'classname' => 'local_wpensar_external',
         'methodname' => 'wpensar_enrol_user',
         'classpath' => 'local/wpensar_plugin_moodle/externallib.php',
         'description' => 'Enrol user',
         'type' => 'write'
-    ),
+    ),*/
 );
 
 $services = array(

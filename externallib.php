@@ -3,10 +3,10 @@
 require_once($CFG->libdir . "/externallib.php");
 
 class local_wpensar_external extends external_api {
-    public static function wpensar_enrol_user_parameters() {
+    /*public static function wpensar_enrol_user_parameters() {
         return new external_function_parameters(
             array(
-                'enrols' => return new external_multiple_structure(
+                'enrols' => new external_multiple_structure(
                     new external_single_structure(
                         array(
                             'userid' => new external_value(PARAM_INT, 'userid'),
@@ -61,5 +61,5 @@ class local_wpensar_external extends external_api {
 
     public static function wpensar_enrol_user_returns() {
         return null;
-    }
+    }*/
 }
