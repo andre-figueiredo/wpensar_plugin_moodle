@@ -3,6 +3,101 @@
 require_once($CFG->libdir . "/externallib.php");
 
 class local_wpensar_external extends external_api {
+    public static function local_wpensar_insert_context_parameters() {
+        return new external_function_parameters(
+            array(
+                'context' => new external_single_structure(
+                    array(
+                        'contextlevel' => new external_value(PARAM_INT, 'contextlevel'),
+                        'instanceid' => new external_value(PARAM_INT, 'instanceid'),
+                    )
+                )
+            )
+        );
+    }
+
+    public static function local_wpensar_insert_context($context) {
+        global $DB;
+
+        $params = self::validate_parameters(self::local_wpensar_insert_context_parameters(), array('context' => $context));
+        $context = new stdClass();
+        $context->contextlevel = $params['contextlevel'];
+        $context->instanceid = $params['instanceid'];
+        $context->id = $DB->insert_record('context', $context);
+        $context->path = '/1/3/' . $context->id;
+        $context->depth = 3;
+        $DB->update_record('context', $context);
+        return $context->id;
+    }
+
+    public static function local_wpensar_insert_context_returns() {
+        return new external_value(PARAM_INT, 'id');
+    }
+
+    public static function local_wpensar_insert_enrol_parameters() {
+        return new external_function_parameters(
+            array(
+                'enrol' => new external_single_structure(
+                    array(
+                        'enrol' => new external_value(PARAM_TEXT, 'ENROL'),
+                        'status' => new external_value(PARAM_INT, 'status'),
+                        'courseid' => new external_value(PARAM_INT, 'courseid'),
+                    )
+                )
+            )
+        );
+    }
+
+    public static function local_wpensar_enrol($enrol) {
+        global $DB;
+
+        $params = self::validate_parameters(self::local_wpensar_insert_enrol_parameters(), array('enrol' => $enrol));
+        $enrol = new stdClass();
+        $enrol->enrol = $params['enrol'];
+        $enrol->status = $params['status'];
+        $enrol->courseid = $params['courseid'];
+
+        $id = $DB->insert_record('enrol', $enrol);
+        return $id;
+    }
+
+    public static function local_wpensar_insert_enrol_returns() {
+        return new external_value(PARAM_INT, 'id');
+    }
+
+    #(`status`, `enrolid`, `userid`, `timestart`, `timeend`, `timecreated`, `timemodified`) 
+    public static function local_wpensar_insert_user_enrolments_parameters() {
+        return new external_function_parameters(
+            array(
+                'roles' => new external_single_structure(
+                    array(
+                        'enrolid' => new external_value(PARAM_TEXT, 'enrolid'),
+                        'userid' => new external_value(PARAM_INT, 'userid'),
+                    )
+                )
+            )
+        );
+    }
+
+    public static function local_wpensar_user_enrolments($roles) {
+        global $DB;
+
+        $params = self::validate_parameters(self::local_wpensar_insert_user_enrolments_parameters(), array('roles' => $roles));
+        $user_enrolments = new stdClass();
+        $user_enrolments->enrolid = $params['enrolid'];
+        $user_enrolments->userid = $params['userid'];
+        $user_enrolments->status = 0;
+        $user_enrolments->timestart = date('Y-m-d');
+        $user_enrolments->timeend = 0;
+        $user_enrolments->timecreated = date('Y-m-d');
+        $user_enrolments->timemodified = 0;
+        $id = $DB->insert_record('user_enrolments', $user_enrolments);
+        return $id;
+    }
+
+    public static function local_wpensar_insert_user_enrolments_returns() {
+        return new external_value(PARAM_INT, 'id');
+    }
     /*public static function wpensar_enrol_user_parameters() {
         return new external_function_parameters(
             array(

@@ -22,6 +22,42 @@ $functions = array(
         'description' => 'Atualiza',
         'type' => 'write'
     ),
+    'local_wpensar_insert_course' => array(
+        'classname' => 'core_course_external',
+        'methodname' => 'create_courses',
+        'classpath' => 'course/externallib.php',
+        'description' => 'Insere um curso',
+        'type' => 'write'
+    ),
+    'local_wpensar_assign_roles' => array(
+        'classname' => 'core_role_external',
+        'methodname' => 'assign_roles',
+        'classpath' => 'enrol/externallib.php',
+        'description' => 'Atribui um papel a um usuário',
+        'type' => 'write'
+    ),
+    
+    'local_wpensar_insert_context' => array(
+        'classname' => 'local_wpensar_external',
+        'methodname' => 'wpensar_insert_context',
+        'classpath' => 'local/wpensar_plugin_moodle/externallib.php',
+        'description' => 'Inserir context',
+        'type' => 'write'
+    ),
+    'local_wpensar_insert_enrol' => array(
+        'classname' => 'local_wpensar_external',
+        'methodname' => 'wpensar_insert_enrol',
+        'classpath' => 'local/wpensar_plugin_moodle/externallib.php',
+        'description' => 'Inserir context',
+        'type' => 'write'
+    ),
+    'local_wpensar_insert_user_enrolments' => array(
+        'classname' => 'local_wpensar_external',
+        'methodname' => 'wpensar_insert_user_enrolments',
+        'classpath' => 'local/wpensar_plugin_moodle/externallib.php',
+        'description' => 'Inserir user_enrolments',
+        'type' => 'write'
+    )
     /*'local_wpensar_enrol_user' => array(
         'classname' => 'local_wpensar_external',
         'methodname' => 'wpensar_enrol_user',
