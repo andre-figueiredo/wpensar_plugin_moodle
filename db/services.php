@@ -36,7 +36,10 @@ $functions = array(
         'description' => 'Atribui um papel a um usuário',
         'type' => 'write'
     ),
-    
+
+
+    /*
+
     'local_wpensar_insert_context' => array(
         'classname' => 'local_wpensar_external',
         'methodname' => 'wpensar_insert_context',
@@ -58,7 +61,7 @@ $functions = array(
         'description' => 'Inserir user_enrolments',
         'type' => 'write'
     )
-    /*'local_wpensar_enrol_user' => array(
+    'local_wpensar_enrol_user' => array(
         'classname' => 'local_wpensar_external',
         'methodname' => 'wpensar_enrol_user',
         'classpath' => 'local/wpensar_plugin_moodle/externallib.php',
