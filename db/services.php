@@ -37,9 +37,7 @@ $functions = array(
         'type' => 'write'
     ),
 
-
     /*
-
     'local_wpensar_insert_context' => array(
         'classname' => 'local_wpensar_external',
         'methodname' => 'wpensar_insert_context',
