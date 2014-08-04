@@ -98,7 +98,7 @@ class local_wpensar_external extends external_api {
     public static function local_wpensar_insert_user_enrolments_returns() {
         return new external_value(PARAM_INT, 'id');
     }
-    /*public static function wpensar_enrol_user_parameters() {
+    public static function wpensar_enrol_user_parameters() {
         return new external_function_parameters(
             array(
                 'enrols' => new external_multiple_structure(
@@ -156,5 +156,5 @@ class local_wpensar_external extends external_api {
 
     public static function wpensar_enrol_user_returns() {
         return null;
-    }*/
+    }
 }
